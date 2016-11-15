@@ -29,9 +29,41 @@
 		},
 
 		validate: function() {
-			supportedLangs.indexOf(this.language) === -1 {
+			if (supportedLangs.indexOf(this.language) === -1) {
 				throw "Invalid language";
 			}
+		},
+
+		greeting: function() {
+			return greetings[this.language] + ' ' + this.firstName + '!';
+		},
+
+		formalGreeting: function() {
+			return formalGreetings[this.language] + ' ' + this.fullName + '!';
+		},
+
+		greet: function(formal) {
+			var msg = this.greeting();
+
+			if (formal) {
+				msg = this.formalGreeting();
+			}
+			else {
+				msg = this.greeting();
+			}
+
+			// 'This' refers to the calling at execution time
+			// Makes method chainable
+			return this;
+
+		},
+
+		setLang: function(lang) {
+			this.language = lang;
+
+			this.validate();
+
+			return this; 
 		}
 
 	};
