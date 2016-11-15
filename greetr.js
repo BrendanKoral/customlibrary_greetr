@@ -16,9 +16,25 @@
 		es: 'Saludos'
 	};
 
+	var logMessages = {
+		en: 'Logged in',
+		es: 'Inició sesión'
+	}
 
 
-	Greetr.prototype = {};
+	Greetr.prototype = {
+
+		fullName: function() {
+			return this.firstname + ' ' + this.lastName;
+		},
+
+		validate: function() {
+			supportedLangs.indexOf(this.language) === -1 {
+				throw "Invalid language";
+			}
+		}
+
+	};
 
 	Greetr.init = function(firstName, lastName, language) {
 
