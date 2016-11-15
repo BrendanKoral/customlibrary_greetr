@@ -1,9 +1,11 @@
 (function (global, $) {
 	
+	// 'new' an object
 	var Greetr = function(firstName, lastName, language) {
 		return new Greetr.init(firstName, lastName, language);
 	}
 
+	// hidden within the scope of IIFE and never directly accessible
 	var supportedLangs = ['en','es'];
 
 	greetings = {
@@ -101,6 +103,7 @@
 		self.lastName = lastName || '';
 		self.language = language || 'en';
 
+		self.validate();
 	}
 
 	Greetr.init.prototype = Greetr.prototype;
