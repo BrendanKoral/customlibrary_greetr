@@ -19,6 +19,6 @@
 
 	}
 
-	Greetr.init.prototype;
+	Greetr.init.prototype = Greetr.prototype;
 
 }(window, jQuery));
